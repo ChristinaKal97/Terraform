@@ -23,7 +23,7 @@ variable "client_key" {
     type = string
 }
 provider "kubernetes" {
-  config_path = "C:/Users/kalantzic.VRICOSMOS/.kube/config"
+  config_path = "~/.kube/config"
   host = var.host
   cluster_ca_certificate = base64decode(var.cluster_ca_certificate)
   client_certificate = base64decode(var.client_certificate)
