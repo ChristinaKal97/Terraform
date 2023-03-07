@@ -23,6 +23,7 @@ variable "client_key" {
     type = string
 }
 provider "kubernetes" {
+  load_config_file = false
   host = var.host
   cluster_ca_certificate = base64decode(var.cluster_ca_certificate)
   client_certificate = base64decode(var.client_certificate)
