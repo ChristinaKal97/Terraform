@@ -23,7 +23,6 @@ variable "client_key" {
     type = string
 }
 provider "kubernetes" {
-  config_path = "~/.kube/config"
   host = var.host
   cluster_ca_certificate = base64decode(var.cluster_ca_certificate)
   client_certificate = base64decode(var.client_certificate)
@@ -83,11 +82,11 @@ resource "kubernetes_service" "nginx" {
       App = kubernetes_deployment.nginx.spec.0.template.0.metadata[0].labels.App
     }
     port {
-      node_port   = 30201
+     # node_port   = 30201
       port        = 80
       target_port = 80
     }
 
-    type = "NodePort"
+   # type = "NodePort"
   }
 }
